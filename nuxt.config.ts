@@ -7,6 +7,6 @@ compatibilityDate: '2025-07-15',
       dir: '.edgeone',
       publicDir: '.edgeone/assets',
       serverDir: '.edgeone/server-handler',
-    },
+    }
   }
 });
