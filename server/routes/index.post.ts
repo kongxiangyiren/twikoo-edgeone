@@ -5,7 +5,7 @@ export default defineEventHandler(async event => {
   process.env.TWIKOO_IP_HEADERS = JSON.stringify(['headers.eo-connecting-ip']);
 
   const { req, res } = event.node;
-
+  req.method = req.method?.toUpperCase();
   try {
     const buffers = [];
     for await (const chunk of req) {
