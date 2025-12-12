@@ -9,7 +9,6 @@ export default defineEventHandler(async event => {
     const buffers = [];
     for await (const chunk of req) {
       buffers.push(chunk);
-      console.log(chunk);
     }
     // @ts-expect-error
     req.body = JSON.parse(Buffer.concat(buffers).toString());
