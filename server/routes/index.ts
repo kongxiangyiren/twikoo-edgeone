@@ -1,47 +1,5 @@
 // @ts-expect-error
-
-import twikoo from 'tkserver/mongo';
-// const server = http.createServer();
-
-// server.on('request', async function (request, response) {
-//   // try {
-//   //   const buffers = [];
-//   //   for await (const chunk of request) {
-//   //     buffers.push(chunk);
-//   //     console.log(chunk);
-
-//   //   }
-//   //   request.body = JSON.parse(Buffer.concat(buffers).toString());
-//   // } catch (e) {
-//   //   request.body = {};
-//   // }
-//   // @ts-expect-error
-//   response.status = function (code: number) {
-//     this.statusCode = code;
-//     return this;
-//   };
-//   // @ts-expect-error
-//   response.json = function (json: any) {
-//     if (!response.writableEnded) {
-//       this.writeHead(200, { 'Content-Type': 'application/json' });
-//       this.end(JSON.stringify(json));
-//     }
-//     return this;
-//   };
-//   return await twikoo(request, response);
-// });
-
-// export default {
-//   fetch: (request: Request) => {
-//     const { req, res } = toReqRes(request);
-
-//     process.env.TWIKOO_IP_HEADERS = JSON.stringify(['headers.eo-connecting-ip']);
-//     // @ts-expect-error
-//     req.body = request.body;
-//     server.emit('request', req, res);
-//     return toFetchResponse(res);
-//   }
-// };
+import twikoo from 'tkserver/mongo.js';
 
 export default defineEventHandler(async event => {
   process.env.TWIKOO_IP_HEADERS = JSON.stringify(['headers.eo-connecting-ip']);
