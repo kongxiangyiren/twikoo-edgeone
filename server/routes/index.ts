@@ -7,13 +7,10 @@ export default defineEventHandler(async event => {
   const { req, res } = event.node;
 
   try {
-    const buffers = [];
-    for await (const chunk of req) {
-      buffers.push(chunk);
-    }
+    const body = await readBody(event);
     // @ts-expect-error
-    req.body = JSON.parse(Buffer.concat(buffers).toString());
-  } catch (e) {
+    req.body = body;
+  } catch (error) {
     // @ts-expect-error
     req.body = {};
   }
