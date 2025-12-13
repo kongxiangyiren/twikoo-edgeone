@@ -1,7 +1,11 @@
 // @ts-expect-error
-import twikoo from 'tkserver/mongo.js';
+import twikoo from 'twikoo-vercel';
 
 export default defineEventHandler(async event => {
+  const headers = event.node.req.headers;
+  process.env.VERCEL_URL =
+    (headers['eo-pages-host'] as string | undefined) ||
+    (headers['x-forwarded-host'] as string | undefined);
   process.env.TWIKOO_IP_HEADERS = JSON.stringify(['headers.eo-connecting-ip']);
 
   const { req, res } = event.node;
